@@ -1,18 +1,10 @@
+
 import React,{useState,useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
-// const pdata = [
-  
-// ];
-// const getDatafromLS=()=>{
-//   const pdata=localStorage.getItem('data');
-//   // if(data){
-//   //   return JSON.parse(data);
-//   // }
-// }
-function App() {
-
+ function App(){
+   
   let [fit, setFit] = useState();
   let [inch, setInch] = useState();
   let [person, setPerson] = useState();
@@ -20,16 +12,19 @@ function App() {
   let [result, setResult] = useState();
   let [status, setStatus] = useState();
   const [data,setData]=useState([])
+
    if(data.length<=7){
      
    }
     else{
       data.shift();
     }
-   const CalculateBMI=()=>{
-     if(fit==""){
-       alert("please fill all the input feild")
-     }
+
+   const CalculateBMI=(e)=>{
+    //  if(fit==""){
+    //    alert("please fill all the input feild")
+    //  }
+    e.preventDefault();
     
      let meters=fit*0.3048+inch*0.0254;
     let bmi =(weight /(meters*meters)).toFixed(2);
@@ -62,28 +57,28 @@ useEffect(()=>{
   return (
     <div>
     <div className='main-container'>
-      <div className="container">
-            <h2>BMI Calculator</h2>
-            <div className='from-body'>
-            <input type="text" name='ff'  placeholder=' Your name'
+        <div className="container">
+          <h2>BMI Calculator</h2>
+          <form className='from-body' onSubmit={CalculateBMI}>
+            <input type="text" name='name' placeholder=' Your name'
               value={person}
-              onChange={(e)=>{setPerson(e.target.value)}} 
+              onChange={(e) => setPerson(e.target.value)} required
             /><span className='span-intext'></span>
-            <input type="text" name='ff'  placeholder=' Your Height'
+            <input type="text" name='height' placeholder=' Your Height'
               value={fit}
-              onChange={(e)=>{setFit(e.target.value)}} 
+              onChange={(e) => setFit(e.target.value)} required
             /><span className='span-intext'>Ft</span>
 
-             <input type="text"  placeholder='height in inch'
+            <input type="text" name='inches' placeholder='Inches'
               value={inch}
-              onChange={(e)=>{setInch(e.target.value)}}
+              onChange={(e) => setInch(e.target.value)} required
             /><span className='span-intext'>Inch</span>
-            <input type="text"  placeholder='Your Weight'
-                value={weight}
-                onChange={(e)=>{setWeight(e.target.value)}}
+            <input type="text" name='weight' placeholder='Your Weight'
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)} required
             /><span className='span-intext'>Kg</span>
-            <button onClick={CalculateBMI}>BMI Calculate</button>
-            </div>
+            <button >BMI Calculate</button>
+          </form>
             <div className="result-btn">
               <p>Your BMI Is : {result}</p>
               <p>Your Currently Status : {status}</p>
@@ -119,4 +114,4 @@ useEffect(()=>{
   );
 }
 
-export default App;
+export default App
