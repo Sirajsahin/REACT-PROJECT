@@ -93,3 +93,69 @@ body{
   margin-top: 20px;
   margin-bottom: 25px;
 }
+
+
+
+/* text hide and show */
+.head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.para{
+  flex-direction: column;
+  border: 2px solid rgb(226, 19, 199);
+  padding: 20px;
+  margin: 100px;
+  width: 40%;
+}
+.paragraph{
+  text-align: center;
+  text-transform: uppercase;
+  color: brown;
+  text-decoration: underline;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.toggle{
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width:600px){
+  .container {
+    background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, deeppink) fixed;
+    color: white;
+    font: normal 32px/1.6 system-ui, sans-serif;
+    text-shadow: 0 1px 1px hsl(0deg 0% 0% / 20%);
+    margin: 10px;
+    width: 100%;
+}
+h2{
+  font-size: 40px;
+}
+.from-body{
+  margin: 0;
+}
+input {
+  width: 65%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.span-intext {
+  margin-left: 4px;
+  font-size: 20px;
+  display: none;
+}
+.result-btn p{
+  font-size: 20px;
+}
+}
