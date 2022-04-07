@@ -41,8 +41,8 @@ let bmiStatus=getStatus(bmi);
     
      setFit("");
      setInch("");
-     setWeight(" ");
-     setPerson(" ");
+     setWeight("");
+     setPerson("");
    }
   
    const getStatus=(bmi)=>{
