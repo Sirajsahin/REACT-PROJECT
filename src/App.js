@@ -1,6 +1,5 @@
 
 import React,{useState,useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
  function App(){
@@ -21,23 +20,20 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
     }
 
    const CalculateBMI=(e)=>{
-    //  if(fit==""){
-    //    alert("please fill all the input feild")
-    //  }
+ 
     e.preventDefault();
     
      let meters=fit*0.3048+inch*0.0254;
-    let bmi =(weight /(meters*meters)).toFixed(2);
-    // setData([...data,bmi])
-let bmiStatus=getStatus(bmi);
-    setStatus(bmiStatus);
-    let person1=person.concat(" : ").concat(bmiStatus);
+     let bmi =(weight /(meters*meters)).toFixed(2);
+     let bmiStatus=getStatus(bmi);
+     setStatus(bmiStatus);
+     let person1=person.concat(" : ").concat(bmiStatus);
      let myData={
        bmi,
        person1
      }
      setData([...data,myData]);
-    setResult(bmi);
+     setResult(bmi);
     
      setFit("");
      setInch("");
@@ -52,11 +48,11 @@ let bmiStatus=getStatus(bmi);
       else return "Obese";
    }
 useEffect(()=>{
-  localStorage.setItem('data',JSON.stringify(data));
+   localStorage.setItem('data',JSON.stringify(data));
 },[data])
   return (
     <div>
-    <div className='main-container'>
+     <div className='main-container'>
         <div className="container">
           <h2>BMI Calculator</h2>
           <form className='from-body' onSubmit={CalculateBMI}>
@@ -85,14 +81,14 @@ useEffect(()=>{
             </div>
       </div>
       </div>
-       <div>
-         <h1 className='live-chart'>Live Chart</h1>
-         <ResponsiveContainer width="100%" aspect={3}>
-        <AreaChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
+    <div>
+      <h1 className='live-chart'>Live Chart</h1>
+        <ResponsiveContainer width="100%" aspect={3}>
+         <AreaChart
+           width={500}
+           height={300}
+           data={data}
+           margin={{
             top: 5,
             right: 30,
             left: 20,
@@ -108,9 +104,9 @@ useEffect(()=>{
         </AreaChart>
       </ResponsiveContainer>
 
-       </div>
+     </div>
      
-    </div>
+   </div>
   );
 }
 
